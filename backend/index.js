@@ -4,8 +4,14 @@ import cookieParser from "cookie-parser"
 import path from 'path'
 import dotenv from 'dotenv'
 
+//utils
+import connectDB from "./config/db"
+
+dotenv.config()
+const port = process.env.PORT || 3000;
+
+connectDB();
 const app = express();
-const port = 5000
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
